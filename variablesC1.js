@@ -22,12 +22,10 @@ const documento = "12341234";
 // let n2 = prompt("ingresa el segundo numero");
 
 let n1 = Number(prompt("ingresa el primer numero"));
-
 let n2 = Number(prompt("ingresa el segundo numero"));
 
 let total = n1 + n2;
 console.log(total);
 
 //DATOS BOOLEAN/BOOLEANOS (T o F)
-
-console.log(n1 > n2);
+// console.log(n1 > n2);
