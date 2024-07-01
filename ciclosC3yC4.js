@@ -57,7 +57,7 @@
 // }
 // console.log("la palabra es correcta");
 
-// DO WHILE
+// DO WHILE ()
 
 let a = 12;
 let b = 7;
