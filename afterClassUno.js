@@ -56,9 +56,9 @@ let n2 = 3;
 console.log(n1 % n2); //operador del modulo: residuo
 
 let numero = 6;
-// alert(numero % 2 === 0);
 
 numero % 2 === 0 ? alert("es par") : alert("NO es par");
+
 // if (numero % 2 === 0) {
 //   alert("es par");
 // } else {

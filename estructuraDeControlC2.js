@@ -135,7 +135,7 @@ switch (extra) {
     alert("extra no valido");
 }
 
-console.log("el precio de su sandwich es de " + sandwich);
+alert("el precio de su sandwich es de " + sandwich);
 
 // ++++++++++++++
 // TERNARIO : siempre y cuando tenga unicamente dos caminos
