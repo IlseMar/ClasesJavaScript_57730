@@ -151,3 +151,96 @@ console.log(fechaFutura.getSeconds()); //segundos
 console.log(fechaFutura.getHours()); //horas
 
 console.log((fechaFutura - fecha) / (1000 * 60 * 60));
+
+//Metodo SORT: ordenar
+//modifica el array original
+let arrayCuentas = [
+  {
+    id: 1,
+    cbu: 5486273622,
+    tipoDeCuenta: "Cuenta Corriente",
+    saldoEnPesos: 5100,
+    titularCuenta: "pepito",
+    estadoDeCuenta: "al dia",
+  },
+  {
+    id: 2,
+    cbu: 1183971869,
+    tipoDeCuenta: "Caja de Ahorro",
+    saldoEnPesos: 300,
+    titularCuenta: "maria",
+    estadoDeCuenta: "con deuda",
+  },
+  {
+    id: 3,
+    cbu: 9582019689,
+    tipoDeCuenta: "Caja de Ahorro",
+    saldoEnPesos: 2200,
+    titularCuenta: "juancito",
+    estadoDeCuenta: "al dia",
+  },
+  {
+    id: 4,
+    cbu: 1761924656,
+    tipoDeCuenta: "Cuenta Corriente",
+    saldoEnPesos: 500,
+    titularCuenta: "carmen",
+    estadoDeCuenta: "al dia",
+  },
+  {
+    id: 5,
+    cbu: 7401971607,
+    tipoDeCuenta: "Cuenta Unica",
+    saldoEnPesos: 1200,
+    titularCuenta: "Jack",
+    estadoDeCuenta: "con deuda",
+  },
+];
+
+let nums = [1, 6, 12, 2, 3, 5];
+nums.sort((a, b) => b - a); //orena de manera ascendente, descendente
+
+console.log(nums);
+
+let palabras = ["casa", "avion", "abeja", "mariposa"];
+palabras.sort((a, b) => a.localeCompare(b));
+console.log(palabras);
+
+// arrayCuentas.sort((a, b) => a.saldoEnPesos - b.saldoEnPesos);
+// console.log(arrayCuentas);
+arrayCuentas.sort((a, b) => a.id - b.id);
+console.log(arrayCuentas);
+
+//Metodo REDUCE: reduce a su minima expresion
+//recibe DOS parametros, uno es el Callback y el otro, el valor inicial del array
+//El primer parametro del metodo: acumulador y siempre inicia en el 1er elemento
+//la iteración inicia desde el 2do elemento
+//El 2do parametro
+//me pide que retorne el cambio que quiero hacer
+
+//sin metodo
+const sumarArray = () => {
+  let acc = 0;
+  for (let i = 0; i < nums.length; i++) {
+    acc += nums[i];
+  }
+  return acc;
+};
+console.log(sumarArray());
+
+//con metodo
+let numeritos = [1, 6, 12, 2, 3, 5];
+let total = numeritos.reduce((acc, elemento) => acc + elemento, 0);
+
+console.log(total);
+
+let totalCuentas = arrayCuentas.reduce((acc, elemento) => {
+  return acc + elemento.saldoEnPesos;
+}, 0);
+console.log(totalCuentas);
+
+let totalNombres = arrayCuentas.reduce((acc, elemento) => {
+  return acc + elemento.titularCuenta + " ";
+}, "");
+
+console.log(totalNombres);
