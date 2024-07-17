@@ -22,20 +22,18 @@ let misElementosTitles = document.querySelectorAll(".title");
 console.log(misElementosTitles);
 
 let contenedorDeProductos = document.querySelector(".container");
+contenedorDeProductos.innerHTML = `<div><div><h3>algo</h3></div></div>`;
 
-contenedorDeProductos.innerHTML = `<h3>algo</h3> <h4>mas</h4>`;
+// console.log(contenedorDeProductos.innerText); //trae el texto que tiene dentro un nodo
+// console.log(contenedorDeProductos.innerHTML); //trae el nodo completo, hijos de un elemento
 
-console.log(contenedorDeProductos.innerText); //trae el texto que tiene dentro un nodo
-console.log(contenedorDeProductos.innerHTML); //trae el nodo completo, hijos de un elemento
-
-//agregar dentro del Documento, algo
+//APPEND: agregar dentro del Documento, algo
 let categorias = document.createElement("div");
-// categorias.innerHTML = `<h3>nuevo nodo</h3>`;
-// console.log(categorias.innerHTML);
+// categorias.innerHTML = `<h3nuevo nodo</h3`;
+// // console.log(categorias.innerHTML);
 document.body.append(categorias);
 
 let categoriaUno = document.createElement("h3");
 categoriaUno.innerText = "esta es mi nueva tarjeta";
 //como agregar nodos dentro de un contenedor
 categorias.appendChild(categoriaUno);
-console.log(categoriaUno);
