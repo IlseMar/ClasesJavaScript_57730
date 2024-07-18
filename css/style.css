@@ -21,3 +21,13 @@ h1 {
 .card h2 {
   color: blue;
 }
+
+.container-productos {
+  border: 2px solid steelblue;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
