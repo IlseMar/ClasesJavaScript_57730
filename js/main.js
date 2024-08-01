@@ -1,5 +1,3 @@
-console.log("funciona");
-
 const productos = [
   {
     id: 1,
@@ -49,8 +47,80 @@ const productos = [
     },
     title: "Impresora Multifuncional",
   },
+  {
+    id: 5,
+    category: "Telefonía",
+    description: "Un smartphone de alta calidad con pantalla de 6.1 pulgadas.",
+    image: "https://via.placeholder.com/100",
+    price: 699.99,
+    rating: {
+      rate: 3.9,
+      count: 120,
+    },
+    title: "Smartphone",
+  },
+  {
+    id: 6,
+    category: "Telefonía",
+    description: "Un teléfono móvil con batería de larga duración.",
+    image: "https://via.placeholder.com/100",
+    price: 299.99,
+    rating: {
+      rate: 3.9,
+      count: 120,
+    },
+    title: "Teléfono Móvil",
+  },
+  {
+    id: 7,
+    category: "Telefonía",
+    description: "Un par de auriculares inalámbricos con cancelación de ruido.",
+    image: "https://via.placeholder.com/100",
+    price: 199.99,
+    rating: {
+      rate: 3.9,
+      count: 120,
+    },
+    title: "Auriculares Inalámbricos",
+  },
+  {
+    id: 8,
+    category: "Telefonía",
+    description: "Un cargador inalámbrico rápido para teléfonos móviles.",
+    image: "https://via.placeholder.com/100",
+    price: 49.99,
+    rating: {
+      rate: 3.9,
+      count: 120,
+    },
+    title: "Cargador Inalámbrico",
+  },
+  {
+    id: 9,
+    category: "Accesorios",
+    description: "Una funda resistente para tabletas de 10 pulgadas.",
+    image: "https://via.placeholder.com/100",
+    price: 29.99,
+    rating: {
+      rate: 3.9,
+      count: 120,
+    },
+    title: "Funda para Tableta",
+  },
+  {
+    id: 10,
+    category: "Accesorios",
+    description: "Un adaptador USB-C a HDMI para conectar dispositivos.",
+    image: "https://via.placeholder.com/100",
+    price: 19.99,
+    rating: {
+      rate: 3.9,
+      count: 120,
+    },
+    title: "Adaptador USB-C a HDMI",
+  },
 ];
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const renderProducts = (arrayProductos) => {
   let containerProducts = document.getElementById("products-container");
@@ -73,5 +143,19 @@ renderProducts(productos);
 const agregarAlCarrito = (id) => {
   let producto = productos.find((elemento) => elemento.id === id);
   carrito.push(producto);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
   console.log(carrito);
 };
+
+const inputSearch = document.getElementById("search");
+if (inputSearch) {
+  inputSearch.addEventListener("input", (evento) => {
+    let value = evento.target.value.toLowerCase();
+    let arraFiltrado = productos.filter((producto) =>
+      producto.title.toLowerCase().includes(value)
+    );
+    renderProducts(arraFiltrado);
+  });
+}
+
+console.log(carrito);
