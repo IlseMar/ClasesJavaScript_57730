@@ -142,9 +142,31 @@ renderProducts(productos);
 
 const agregarAlCarrito = (id) => {
   let producto = productos.find((elemento) => elemento.id === id);
-  carrito.push(producto);
+  let productoEnElCarrito = carrito.find((elemento) => elemento.id === id);
+
+  if (productoEnElCarrito) {
+    productoEnElCarrito.quantity += 1;
+    Swal.fire({
+      title: "Su proucto se aumento uno más",
+      icon: "success",
+      position: "center",
+      // showConfirmButton: false,
+      confirmButtonText: "aceptar",
+      timer: 1500,
+    });
+  } else {
+    carrito.push({ ...producto, quantity: 1 });
+    Swal.fire({
+      title: "Se agregó exitosamente",
+      icon: "success",
+      position: "center",
+      showConfirmButton: false,
+      // confirmButtonText: "aceptar",
+      timer: 1500,
+    });
+  }
+
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  console.log(carrito);
 };
 
 const inputSearch = document.getElementById("search");
